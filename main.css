@@ -8,8 +8,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
-.todo {
-}
 .todo-row {
     display: flex;
     flex-direction: column;
@@ -19,18 +17,18 @@ body {
     padding-top: 80px;
 }
 .todo-title {
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     font-size: 1.625rem;
     margin-bottom: 1.125rem;
 }
 .todo-form {
+    margin-bottom: 3rem;
 }
 .todo-form--row {
     display: flex;
     gap: 2%;
     height: 2.375rem;
-    margin-bottom: 1.25rem;
 }
 .todo-form--input {
     display: flex;
@@ -41,10 +39,12 @@ body {
 .todo-form--input input {
     height: 2.375rem;
     width: 100%;
+    font-size: 1.125rem;
     padding: 8px;
     border: none;
     border: 1px solid #6c63ff;
     border-radius: 5px;
+    outline-color: #0c04ac;
 }
 .todo-form--input input::placeholder {
     font-size: 1rem;
@@ -63,8 +63,85 @@ body {
     border: none;
     border-radius: 5px;
     padding: 10px;
+    outline-color: #0c04ac;
 }
 .todo-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+    list-style: none;
 }
 .todo-list--item {
+    display: flex;
+    align-items: center;
+    padding-bottom: 1.0625rem;
+    border-bottom: 1px solid rgba(108, 99, 255, .3);
+}
+.todo-list--item p {
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+}
+
+.todo-item--checkbox {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    position: relative;
+    margin-right: 20px;
+}
+.todo-item--checkbox span {
+    display: inline-block;
+    position: relative;
+    width: 26px;
+    height: 26px;
+    border: 1px solid #6c63ff;
+    border-radius: 2px;
+}
+.todo-item--checkbox input[type="checkbox"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    outline-color: #0c04ac;
+
+}
+.todo-item--checkbox input[type="checkbox"]:checked + span {
+    background-color: #6c63ff;
+}
+.todo-item--checkbox input[type="checkbox"]:checked + span::after {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 15px;
+    position: absolute;
+    top: 2px;
+    left: 7px;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(40deg);
+}
+.todo-item--checkbox input[type="checkbox"]:checked ~ p {
+    text-decoration: line-through;
+}
+.todo-item--action {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-left: 10px;
+}
+.todo-item--action svg:hover {
+    cursor: pointer;
+}
+.todo-item--action svg path {
+    transition: stroke .3s ease;
+}
+.todo-item--action svg:hover path {
+    stroke: #6c63ff;
+}
+.todo-item--action svg:active path {
+    stroke: #291ef7;
 }
