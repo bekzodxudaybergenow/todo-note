@@ -8,6 +8,9 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
+.todo {
+    padding: 0 15px;
+}
 .todo-row {
     display: flex;
     flex-direction: column;
@@ -144,4 +147,24 @@ body {
 }
 .todo-item--action svg:active path {
     stroke: #291ef7;
+}
+
+@media screen and (max-width: 425px) {
+    html {
+        font-size: 15px;
+    }
+    .todo-form--select {
+        width: 30%;
+    }
+    .todo-item--checkbox span {
+        width: 20px;
+        height: 20px;
+    }
+    .todo-item--checkbox input[type="checkbox"]:checked + span::after {
+        width: 8px;
+        height: 12px;
+        position: absolute;
+        top: 2px;
+        left: 5px;
+    }
 }
